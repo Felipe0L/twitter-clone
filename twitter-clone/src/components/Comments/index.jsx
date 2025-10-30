@@ -27,7 +27,7 @@ export default function Comments({
 
     try {
       const res = await fetch(
-        `http://localhost:8000/api/posts/${postId}/comments/`,
+        `https://felipe0l.pythonanywhere.com/api/posts/${postId}/comments/`,
         {
           method: "POST",
           headers: {

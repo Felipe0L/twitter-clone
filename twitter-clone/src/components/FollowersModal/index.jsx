@@ -16,7 +16,7 @@ export default function FollowersModal({ userId, token, onClose }) {
     async function loadFollowers() {
       try {
         const res = await fetch(
-          `http://localhost:8000/api/users/${userId}/followers/`,
+          `https://felipe0l.pythonanywhere.com/api/users/${userId}/followers/`,
           {
             headers: { Authorization: `Token ${token}` }
           }

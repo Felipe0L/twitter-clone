@@ -31,11 +31,14 @@ export default function Profile() {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const res = await fetch("http://localhost:8000/api/profile/", {
-          headers: {
-            Authorization: `Token ${token}`
+        const res = await fetch(
+          "https://felipe0l.pythonanywhere.com/api/profile/",
+          {
+            headers: {
+              Authorization: `Token ${token}`
+            }
           }
-        })
+        )
 
         if (!res.ok) throw new Error("Erro ao carregar perfil")
         const data = await res.json()

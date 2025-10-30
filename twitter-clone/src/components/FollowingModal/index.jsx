@@ -16,7 +16,7 @@ export default function FollowingModal({ userId, token, onClose }) {
     async function loadFollowing() {
       try {
         const res = await fetch(
-          `http://localhost:8000/api/users/${userId}/following/`,
+          `https://felipe0l.pythonanywhere.com/api/users/${userId}/following/`,
           {
             headers: { Authorization: `Token ${token}` }
           }

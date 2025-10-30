@@ -28,13 +28,16 @@ const LoginOptions = () => {
   // Função reutilizável de login
   const login = async (username, password) => {
     try {
-      const res = await fetch("http://localhost:8000/api/login/", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ username, password })
-      })
+      const res = await fetch(
+        "https://felipe0l.pythonanywhere.com/api/login/",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({ username, password })
+        }
+      )
 
       const data = await res.json()
 
@@ -56,16 +59,19 @@ const LoginOptions = () => {
   const handleCadastroELogin = async () => {
     if (user.length > 3 && pass.length > 4) {
       try {
-        const res = await fetch("http://localhost:8000/api/register/", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify({
-            username: user,
-            password: pass
-          })
-        })
+        const res = await fetch(
+          "https://felipe0l.pythonanywhere.com/api/register/",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+              username: user,
+              password: pass
+            })
+          }
+        )
 
         if (!res.ok) {
           const data = await res.json()

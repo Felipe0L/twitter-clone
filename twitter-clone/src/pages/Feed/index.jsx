@@ -55,11 +55,14 @@ const Feed = () => {
     const fetchPosts = async () => {
       try {
         const token = localStorage.getItem("token")
-        const res = await fetch("http://localhost:8000/api/posts/", {
-          headers: {
-            Authorization: `Token ${token}`
+        const res = await fetch(
+          "https://felipe0l.pythonanywhere.com/api/posts/",
+          {
+            headers: {
+              Authorization: `Token ${token}`
+            }
           }
-        })
+        )
 
         if (!res.ok) {
           console.error("Erro ao buscar posts")
@@ -87,7 +90,7 @@ const Feed = () => {
     const token = localStorage.getItem("token")
 
     try {
-      await fetch("http://localhost:8000/api/logout/", {
+      await fetch("https://felipe0l.pythonanywhere.com/api/logout/", {
         method: "POST",
         headers: {
           Authorization: `Token ${token}`
@@ -107,16 +110,19 @@ const Feed = () => {
     try {
       const token = localStorage.getItem("token")
 
-      const res = await fetch("http://localhost:8000/api/posts/", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Token ${token}`
-        },
-        body: JSON.stringify({
-          content: newPost
-        })
-      })
+      const res = await fetch(
+        "https://felipe0l.pythonanywhere.com/api/posts/",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Token ${token}`
+          },
+          body: JSON.stringify({
+            content: newPost
+          })
+        }
+      )
 
       if (!res.ok) {
         console.error("Erro ao criar post")
@@ -140,12 +146,15 @@ const Feed = () => {
 
     try {
       const token = localStorage.getItem("token")
-      const res = await fetch(`http://localhost:8000/api/posts/${id}/`, {
-        method: "DELETE",
-        headers: {
-          Authorization: `Token ${token}`
+      const res = await fetch(
+        `https://felipe0l.pythonanywhere.com/api/posts/${id}/`,
+        {
+          method: "DELETE",
+          headers: {
+            Authorization: `Token ${token}`
+          }
         }
-      })
+      )
 
       if (res.ok) {
         setPosts(posts.filter((post) => post.id !== id)) // remove da lista
@@ -189,7 +198,7 @@ const Feed = () => {
   const handleToggleLike = async (postId) => {
     try {
       const response = await fetch(
-        `http://localhost:8000/api/posts/${postId}/like/`,
+        `https://felipe0l.pythonanywhere.com/api/posts/${postId}/like/`,
         {
           method: "POST",
           headers: {
@@ -230,7 +239,7 @@ const Feed = () => {
   const handleToggleFollow = async (userId) => {
     try {
       const response = await fetch(
-        `http://localhost:8000/api/follow/${userId}/toggle/`,
+        `https://felipe0l.pythonanywhere.com/api/follow/${userId}/toggle/`,
         {
           method: "POST",
           headers: {
@@ -287,7 +296,7 @@ const Feed = () => {
 
     try {
       const res = await fetch(
-        `http://localhost:8000/api/posts/${postId}/comments/${commentId}/`,
+        `https://felipe0l.pythonanywhere.com/api/posts/${postId}/comments/${commentId}/`,
         {
           method: "DELETE",
           headers: {

@@ -11,7 +11,7 @@ function Feed() {
     const token = localStorage.getItem("token")
     if (!token) return
 
-    fetch("http://localhost:8000/api/feed/", {
+    fetch("https://felipe0l.pythonanywhere.com/api/feed/", {
       headers: { Authorization: `Token ${token}` }
     })
       .then((res) => res.json())
@@ -19,7 +19,7 @@ function Feed() {
       .catch((err) => console.error("Erro ao carregar posts:", err))
 
     // 🔥 Buscar usuário logado
-    fetch("http://localhost:8000/api/profile/", {
+    fetch("https://felipe0l.pythonanywhere.com/api/profile/", {
       headers: { Authorization: `Token ${token}` }
     })
       .then((res) => res.json())
@@ -31,10 +31,13 @@ function Feed() {
   const handleDeletePost = async (postId) => {
     const token = localStorage.getItem("token")
     try {
-      const res = await fetch(`http://localhost:8000/api/posts/${postId}/`, {
-        method: "DELETE",
-        headers: { Authorization: `Token ${token}` }
-      })
+      const res = await fetch(
+        `https://felipe0l.pythonanywhere.com/api/posts/${postId}/`,
+        {
+          method: "DELETE",
+          headers: { Authorization: `Token ${token}` }
+        }
+      )
 
       if (res.ok) {
         setPosts(posts.filter((p) => p.id !== postId))
@@ -48,7 +51,7 @@ function Feed() {
   const handleToggleLike = async (postId) => {
     try {
       const response = await fetch(
-        `http://localhost:8000/api/posts/${postId}/like/`,
+        `https://felipe0l.pythonanywhere.com/api/posts/${postId}/like/`,
         {
           method: "POST",
           headers: {
@@ -82,7 +85,7 @@ function Feed() {
   const handleToggleFollow = async (userId) => {
     try {
       const response = await fetch(
-        `http://localhost:8000/api/follow/${userId}/toggle/`,
+        `https://felipe0l.pythonanywhere.com/api/follow/${userId}/toggle/`,
         {
           method: "POST",
           headers: {
@@ -134,7 +137,7 @@ function Feed() {
 
     try {
       const res = await fetch(
-        `http://localhost:8000/api/posts/${postId}/comments/${commentId}/`,
+        `https://felipe0l.pythonanywhere.com/api/posts/${postId}/comments/${commentId}/`,
         {
           method: "DELETE",
           headers: {

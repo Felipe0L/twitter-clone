@@ -19,7 +19,7 @@ const CommentCard = ({ comment, onDelete, currentUser }) => {
           author.avatar
             ? author.avatar.startsWith("http")
               ? author.avatar
-              : `http://localhost:8000${author.avatar}`
+              : `https://felipe0l.pythonanywhere.com${author.avatar}`
             : DefaultAvatar
         }
         alt={author.username || "avatar"}
