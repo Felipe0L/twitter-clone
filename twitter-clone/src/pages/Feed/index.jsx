@@ -38,11 +38,14 @@ const Feed = () => {
   useEffect(() => {
     const fetchUser = async () => {
       const token = localStorage.getItem("token")
-      const response = await fetch("http://127.0.0.1:8000/api/profile/", {
-        headers: {
-          Authorization: `Token ${token}`
+      const response = await fetch(
+        "https://felipe0l.pythonanywhere.com/api/profile/",
+        {
+          headers: {
+            Authorization: `Token ${token}`
+          }
         }
-      })
+      )
       const data = await response.json()
       console.log("User recebido:", data)
       setUser(data)
@@ -171,7 +174,7 @@ const Feed = () => {
       const token = localStorage.getItem("token") // ou onde você guarda o token
 
       const response = await fetch(
-        "http://127.0.0.1:8000/api/profile/update/",
+        "https://felipe0l.pythonanywhere.com/api/profile/update/",
         {
           method: "PATCH", // ✅ atualização parcial
           headers: {
