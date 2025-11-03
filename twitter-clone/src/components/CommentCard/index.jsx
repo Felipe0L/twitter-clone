@@ -8,20 +8,21 @@ import {
   DelBt
 } from "./styles"
 
+const BASE_URL = "https://felipe0l.pythonanywhere.com"
+
+// 🔧 Helper para montar URL do avatar
+const getAvatarUrl = (avatar) => {
+  if (!avatar) return DefaultAvatar
+  return avatar.startsWith("http") ? avatar : `${BASE_URL}${avatar}`
+}
+
 const CommentCard = ({ comment, onDelete, currentUser }) => {
-  // Garante compatibilidade: se tiver author, usa; se não, usa fallback
   const author = comment.author || {}
 
   return (
     <CommentContainer>
       <AvatarCont
-        src={
-          author.avatar
-            ? author.avatar.startsWith("http")
-              ? author.avatar
-              : `https://felipe0l.pythonanywhere.com${author.avatar}`
-            : DefaultAvatar
-        }
+        src={getAvatarUrl(author.avatar)}
         alt={author.username || "avatar"}
         style={{ width: "32px", height: "32px" }}
       />

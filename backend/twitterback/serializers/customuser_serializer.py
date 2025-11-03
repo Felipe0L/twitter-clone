@@ -7,7 +7,7 @@ User = get_user_model()
 
 class CustomUserSerializer(serializers.ModelSerializer):
     password = serializers.CharField(write_only=True)
-    avatar = serializers.ImageField(required=False, use_url=True, allow_null=True)
+    avatar = serializers.ImageField(required=False, use_url=False, allow_null=True)
     handle = serializers.SerializerMethodField()
     is_me = serializers.SerializerMethodField()
     is_following = serializers.SerializerMethodField()
