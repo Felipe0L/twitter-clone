@@ -44,7 +44,7 @@ const PostCard = ({
         src={
           avatar ||
           (post.author.avatar
-            ? `https://felipe0l.pythonanywhere.com/${post.author.avatar}`
+            ? `https://felipe0l.pythonanywhere.com/media/${post.author.avatar}`
             : DefaultAvatar)
         }
         alt={post.author.username || "avatar"}

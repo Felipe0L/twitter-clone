@@ -8,7 +8,7 @@ import {
   DelBt
 } from "./styles"
 
-const BASE_URL = "https://felipe0l.pythonanywhere.com/"
+const BASE_URL = "https://felipe0l.pythonanywhere.com/media/"
 
 // 🔧 Helper para montar URL do avatar
 const getAvatarUrl = (avatar) => {
