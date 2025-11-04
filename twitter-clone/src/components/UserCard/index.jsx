@@ -11,7 +11,7 @@ import {
 import MoreIconImg from "../../assets/xmenu_more.png"
 import DefaultAvatar from "../../assets/avatar.png"
 
-const BASE_URL = "https://felipe0l.pythonanywhere.com"
+const BASE_URL = "https://felipe0l.pythonanywhere.com/"
 
 const UserCard = ({ avatar, name, handle }) => {
   // 🔧 Monta a URL completa apenas se o avatar vier do backend
