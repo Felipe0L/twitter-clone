@@ -74,10 +74,9 @@ export default function Profile() {
         <div className='header'>
           <Avatar
             src={
-              DefaultAvatar ||
-              (user.avatar
+              user?.avatar
                 ? `https://felipe0l.pythonanywhere.com/media/${user.avatar}`
-                : DefaultAvatar)
+                : DefaultAvatar
             }
             alt={user.username}
           />

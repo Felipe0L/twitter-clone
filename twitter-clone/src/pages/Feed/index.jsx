@@ -386,10 +386,9 @@ const Feed = () => {
             <div className='cont'>
               <AvatarCont
                 src={
-                  Avatar ||
-                  (user.avatar
+                  user?.avatar
                     ? `https://felipe0l.pythonanywhere.com/media/${user.avatar}`
-                    : Avatar)
+                    : Avatar
                 }
                 alt={user?.username}
               />

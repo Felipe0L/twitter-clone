@@ -14,10 +14,9 @@ export default function ProfilePreview({ user }) {
       <div className='user-left'>
         <Avatar
           src={
-            DefaultAvatar ||
-            (user.avatar
+            user?.avatar
               ? `https://felipe0l.pythonanywhere.com/media/${user.avatar}`
-              : DefaultAvatar)
+              : DefaultAvatar
           }
           alt={user.username}
         />
