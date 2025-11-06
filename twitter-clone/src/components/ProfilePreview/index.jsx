@@ -12,7 +12,15 @@ export default function ProfilePreview({ user }) {
   return (
     <CardContainer>
       <div className='user-left'>
-        <Avatar src={user.avatar || DefaultAvatar} alt={user.username} />
+        <Avatar
+          src={
+            DefaultAvatar ||
+            (user.avatar
+              ? `https://felipe0l.pythonanywhere.com/media/${user.avatar}`
+              : DefaultAvatar)
+          }
+          alt={user.username}
+        />
         <UserInfo>
           <Username>{user.username}</Username>
           <Handle>@{user.handle}</Handle>

@@ -384,7 +384,15 @@ const Feed = () => {
 
           <WritePost>
             <div className='cont'>
-              <AvatarCont src={user?.avatar || Avatar} alt={user?.username} />
+              <AvatarCont
+                src={
+                  Avatar ||
+                  (user.avatar
+                    ? `https://felipe0l.pythonanywhere.com/media/${user.avatar}`
+                    : Avatar)
+                }
+                alt={user?.username}
+              />
               <PostTextArea
                 maxLength={280}
                 placeholder='O que está acontencendo?'

@@ -72,7 +72,15 @@ export default function Profile() {
       </aside>
       <ProfileContainer>
         <div className='header'>
-          <Avatar src={user.avatar || DefaultAvatar} alt={user.username} />
+          <Avatar
+            src={
+              DefaultAvatar ||
+              (user.avatar
+                ? `https://felipe0l.pythonanywhere.com/media/${user.avatar}`
+                : DefaultAvatar)
+            }
+            alt={user.username}
+          />
           <Info>
             <Username>{user.username}</Username>
             <Handle>@{user.handle}</Handle>
