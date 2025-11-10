@@ -42,7 +42,6 @@ const LoginOptions = () => {
       const data = await res.json()
 
       if (res.ok) {
-        console.log("Token recebido:", data.token)
         localStorage.setItem("token", data.token)
         return true
       } else {
@@ -78,8 +77,6 @@ const LoginOptions = () => {
           console.error("Erro ao criar usuário:", data)
           return
         }
-
-        console.log("Usuário criado com sucesso")
 
         const sucesso = await login(user, pass)
         if (sucesso) {

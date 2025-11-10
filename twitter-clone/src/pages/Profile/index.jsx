@@ -42,7 +42,6 @@ export default function Profile() {
 
         if (!res.ok) throw new Error("Erro ao carregar perfil")
         const data = await res.json()
-        console.log("User carregado:", data)
         setUser(data)
       } catch (error) {
         console.error("Erro ao buscar usuário:", error)

@@ -47,7 +47,6 @@ const Feed = () => {
         }
       )
       const data = await response.json()
-      console.log("User recebido:", data)
       setUser(data)
     }
 
@@ -73,7 +72,6 @@ const Feed = () => {
         }
 
         const data = await res.json()
-        console.log(data)
         setPosts(data)
       } catch (error) {
         console.error("Erro na requisição dos posts", error)
@@ -215,9 +213,6 @@ const Feed = () => {
         throw new Error("Erro ao curtir/descurtir post")
       }
 
-      const data = await response.json()
-      console.log("Resposta like:", data)
-
       // Atualiza apenas o post alterado
       setPosts((prevPosts) =>
         prevPosts.map((post) =>
@@ -257,7 +252,6 @@ const Feed = () => {
       }
 
       const data = await response.json()
-      console.log("Resposta follow:", data)
 
       // Atualiza todos os posts desse usuário no feed
       setPosts((prevPosts) =>
@@ -281,9 +275,6 @@ const Feed = () => {
 
   // adiciona comentário a um post
   const handleAddComment = (newComment, postId) => {
-    console.log("Novo comentário recebido:", newComment)
-    console.log("Post alvo:", postId)
-
     setPosts((prevPosts) =>
       prevPosts.map((p) =>
         p.id === postId

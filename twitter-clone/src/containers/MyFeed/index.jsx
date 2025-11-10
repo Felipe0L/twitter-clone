@@ -119,9 +119,6 @@ function Feed() {
 
   // adiciona comentário a um post
   const handleAddComment = (newComment, postId) => {
-    console.log("Novo comentário recebido:", newComment)
-    console.log("Post alvo:", postId)
-
     setPosts((prevPosts) =>
       prevPosts.map((p) =>
         p.id === postId
